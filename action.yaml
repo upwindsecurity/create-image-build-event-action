@@ -1,4 +1,4 @@
-name: Upwind Notify CI
+name: Upwind CI Action
 author: Upwind Security
 description: Notify a CI event to upwind.
 
