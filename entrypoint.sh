@@ -57,8 +57,6 @@ send_ci_event() {
         echo "DRY MODE: The curl command is:"
         echo "${CURL_CMD}"
     else
-        echo "The curl command is:"
-        echo "${CURL_CMD}"
         echo "Sending CI event..."
         response=$(eval "${CURL_CMD}")
         echo "Response: ${response}"
