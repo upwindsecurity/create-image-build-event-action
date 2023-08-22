@@ -1,0 +1,52 @@
+name: Upwind Notify CI
+author: Upwind Security
+description: Notify a CI event to upwind.
+
+inputs:
+  dry:
+    description: If true, the command will be printed but not sent.
+    default: 'false'
+    required: false
+
+  image:
+    description: The image associated with the CI event.
+    required: true
+
+  image_sha:
+    description: The image SHA associated with the CI event.
+    required: true
+
+  api_url:
+    description: upwind api URL
+    default: 'https://api.upwind.io'
+    required: false
+
+  auth_url:
+    description: upwind auth URL
+    default: 'https://auth.upwind.io'
+    required: false
+
+  upwind_client_id:
+    description: Client ID for upwind authentication.
+    required: true
+
+  upwind_client_secret:
+    description: Client secret for upwind authentication.
+    required: true
+
+  upwind_organization_id:
+    description: Organization ID for which the CI event is intended.
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    DRY: ${{ inputs.dry }}
+    IMAGE: ${{ inputs.image }}
+    IMAGE_SHA: ${{ inputs.image_sha }}
+    API_URL: ${{ inputs.api_url }}
+    AUTH_URL: ${{ inputs.auth_url }}
+    UPWIND_CLIENT_ID: ${{ inputs.upwind_client_id }}
+    UPWIND_CLIENT_SECRET: ${{ inputs.upwind_client_secret }}
+    UPWIND_ORGANIZATION_ID: ${{ inputs.upwind_organization_id }}
