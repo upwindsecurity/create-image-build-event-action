@@ -1,0 +1,51 @@
+name: Upwind Create Image Build Event
+description: Create an image build event in Upwind.
+
+inputs:
+  dry_run:
+    description: The execution mode of the action. Setting it to `'true'` simulates event creation without executing it.
+    default: 'false'
+    required: false
+
+  image:
+    description: The image associated with the build event.
+    required: true
+
+  image_sha:
+    description: The image SHA associated with the build event.
+    required: true
+
+  upwind_api_endpoint:
+    description: The Management API endpoint.
+    default: https://api.upwind.io
+    required: false
+
+  upwind_auth_endpoint:
+    description: The Authentication API endpoint.
+    default: https://auth.upwind.io
+    required: false
+
+  upwind_client_id:
+    description: The client ID used for authentication with the Upwind Authorization Service.
+    required: true
+
+  upwind_client_secret:
+    description: The client secret for authentication with the Upwind Authorization Service.
+    required: true
+
+  upwind_organization_id:
+    description: The identifier of the Upwind organization associated with the event.
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    DRY_RUN: ${{ inputs.dry_run }}
+    IMAGE: ${{ inputs.image }}
+    IMAGE_SHA: ${{ inputs.image_sha }}
+    UPWIND_API_ENDPOINT: ${{ inputs.upwind_api_endpoint }}
+    UPWIND_AUTH_ENDPOINT: ${{ inputs.upwind_auth_endpoint }}
+    UPWIND_CLIENT_ID: ${{ inputs.upwind_client_id }}
+    UPWIND_CLIENT_SECRET: ${{ inputs.upwind_client_secret }}
+    UPWIND_ORGANIZATION_ID: ${{ inputs.upwind_organization_id }}
