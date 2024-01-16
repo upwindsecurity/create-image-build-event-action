@@ -40,7 +40,7 @@ create_event() {
          \"repository\": \"https://github.com/${GITHUB_REPOSITORY}.git\",
          \"branch\": \"${GITHUB_REF_NAME}\",
          \"image_sha\": \"${IMAGE_SHA}\",
-         \"build_time\" : \"$(date +'%Y-%m-%dT%H:%M:%S')\"
+         \"build_time\" : \"$(date +'%Y-%m-%dT%H:%M:%SZ')\"
        }
      }'
      "
