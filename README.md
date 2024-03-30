@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Image Build Event
-        uses: upwindsecurity/create-image-build-event-action@v1
+        uses: upwindsecurity/create-image-build-event-action@v2
         with:
           image: "<IMAGE_NAME>"
           image_sha: "<IMAGE_SHA>"
