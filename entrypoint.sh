@@ -58,7 +58,6 @@ create_event() {
 }
 EOF
 )
-    echo ${JSON_PAYLOAD}
 
     CURL_CMD="curl -fsSL \"${UPWIND_API_ENDPOINT}/v1/organizations/$UPWIND_ORGANIZATION_ID/events\" \
     --request POST \
