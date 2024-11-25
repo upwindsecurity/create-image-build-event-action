@@ -16,11 +16,11 @@ inputs:
     required: true
 
   pull_request_id:
-    description: The pull request associated with the build even.
+    description: The pull request associated with the build event.
     required: false
 
   username:
-    description: The user name associated with the build even.
+    description: The user name associated with the build event.
     required: false
 
   upwind_api_endpoint:
