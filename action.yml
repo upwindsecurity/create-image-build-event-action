@@ -15,6 +15,14 @@ inputs:
     description: The image SHA associated with the build event.
     required: true
 
+  pull_request_id:
+    description: The pull request associated with the build event.
+    required: false
+
+  username:
+    description: The user name associated with the build event.
+    required: false
+
   upwind_api_endpoint:
     description: The Management API endpoint.
     default: https://api.upwind.io
@@ -44,6 +52,8 @@ runs:
     DRY_RUN: ${{ inputs.dry_run }}
     IMAGE: ${{ inputs.image }}
     IMAGE_SHA: ${{ inputs.image_sha }}
+    USERNAME: ${{ inputs.username }}
+    PULL_REQUEST_ID: ${{ inputs.pull_request_id }}
     UPWIND_API_ENDPOINT: ${{ inputs.upwind_api_endpoint }}
     UPWIND_AUTH_ENDPOINT: ${{ inputs.upwind_auth_endpoint }}
     UPWIND_CLIENT_ID: ${{ inputs.upwind_client_id }}
